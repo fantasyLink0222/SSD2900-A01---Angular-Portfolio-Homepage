@@ -11,6 +11,7 @@
                 <div class="main-content">
                     <div
                     class="project"
+                    
                     *ngFor="let project of projects"
                 
                      >
@@ -32,7 +33,10 @@
              
               <div class="sidebar">
                 <h2>Categories</h2>
-                <div class="sidebar-item" *ngFor="let category of categories">
+                <div class="sidebar-item" 
+                     [class.selected]="category === selectedCategory"
+                     *ngFor="let category of categories"
+                     (click) = "categoryFilter(category)">
                   {{category.name}}
                 </div>
                 <h2>Tags</h2>

@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import categoriesData from '../assets/data/categories.json';
 import projectsData from '../assets/data/projects.json';
 import tagsData from '../assets/data/tags.json';
+import { filter } from 'rxjs';
 
 
 export class Category {
@@ -40,6 +41,7 @@ export class Project {
 }
 const PROJECTS: Project[] = projectsData as Project[];
 
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -55,6 +57,15 @@ export class AppComponent {
   public categories = CATEGORIES;
   public projects = PROJECTS;
   public tags = TAGS;
+  selectedCategory: Category | undefined;
+  selectedTag: Tag | undefined;
+  categoryFilter(category: Category) {
+    this.selectedCategory = category;
+    
+  }
+  TagFilter(tag: Tag) {
+    this.selectedTag = tag;
+  }
 
 
 }

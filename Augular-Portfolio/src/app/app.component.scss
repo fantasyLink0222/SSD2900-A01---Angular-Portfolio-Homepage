@@ -30,6 +30,7 @@
         margin: 0;
         gap:0.2em;
         
+        
     }
     .cate-tag p{
         margin: 0;
@@ -38,6 +39,7 @@
     
         border-radius: 0.2em;
         padding: 0.2em;
+        cursor: pointer;
     }
 
     .sidebar {
@@ -62,3 +64,14 @@
    .sidebar-item {
     cursor: pointer;
    }
+    //footer bottom right
+    footer{
+        position: fixed;
+        bottom: 0;
+        right: 2em;
+        padding: 0.5em;
+        
+        font-size: 1.2em;
+        max-height: fit-content;
+
+    }
