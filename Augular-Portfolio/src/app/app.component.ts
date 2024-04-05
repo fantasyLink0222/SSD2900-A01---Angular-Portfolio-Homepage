@@ -1,45 +1,16 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { CATEGORIES } from './data/categories';
+import { PROJECTS } from './data/projects';
+import { TAGS } from './data/tags';
 
-import categoriesData from '../assets/data/categories.json';
-import projectsData from '../assets/data/projects.json';
-import tagsData from '../assets/data/tags.json';
 import { filter } from 'rxjs';
 
 
-export class Category {
-  id!: number;
-  name!: string;
-  slug!: string;
 
-}
-const CATEGORIES: Category[] = categoriesData as Category[];
 
-export class Tag {
-  id!: number;
-  name!: string;
-  slug!: string;
-  pivot?: any;
-}
-const TAGS: Tag[] = tagsData as Tag[];
-export class Project {
-  'id': number;
-  'title': string;
-  'slug': string;
-  'excerpt': string;
-  'body': string;
-  'url': string | null;
-  'published_date': string | null;
-  'image': string | null;
-  'thumb': string | null;
-  'category_id': number | null;
-  'created_at': string;
-  'updated_at': string;
-  'category': Category | null;
-  'tags': Tag[] | undefined;
-}
-const PROJECTS: Project[] = projectsData as Project[];
+
 
 
 @Component({
@@ -57,15 +28,11 @@ export class AppComponent {
   public categories = CATEGORIES;
   public projects = PROJECTS;
   public tags = TAGS;
-  selectedCategory: Category | undefined;
-  selectedTag: Tag | undefined;
-  categoryFilter(category: Category) {
-    this.selectedCategory = category;
+
     
   }
-  TagFilter(tag: Tag) {
-    this.selectedTag = tag;
-  }
+
+  
 
 
-}
+

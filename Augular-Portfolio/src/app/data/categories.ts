@@ -1,5 +1,6 @@
+import { Category } from "../models/catergory";
 
-export const categories =
+export const CATEGORIES:Category[] =
 
 [
   { "id": 1, "slug": "back-end", "name": "Back End" },
