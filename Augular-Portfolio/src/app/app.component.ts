@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { CATEGORIES } from './data/categories';
 import { PROJECTS } from './data/projects';
 import { TAGS } from './data/tags';
-
 import { filter } from 'rxjs';
 
 
