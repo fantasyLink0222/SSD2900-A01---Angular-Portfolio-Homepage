@@ -1,0 +1,15 @@
+.container {
+    display: grid;
+    grid-template-columns: auto 200px; /* main content auto width and sidebar 200px */
+    margin: auto;
+    grid-gap: 16px; 
+  }
+
+    .main-content {
+       
+            display: grid;
+            grid-gap: 16px; /* space between grid items */
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            /* Creates as many columns as can fit at least 200px wide */
+          
+    }

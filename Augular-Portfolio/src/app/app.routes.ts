@@ -1,3 +1,16 @@
 import { Routes } from '@angular/router';
+import { ProjectComponent } from './components/project/project.component';  
+import { ProjectsComponent } from './components/projects/projects.component';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+    
+    { path: '', component: ProjectsComponent, pathMatch: 'full' },
+    { path: 'projects', component: ProjectsComponent },
+    { path: 'project/:id', component: ProjectComponent },
+    { path: '**', redirectTo: ''},
+
+
+
+
+];
+

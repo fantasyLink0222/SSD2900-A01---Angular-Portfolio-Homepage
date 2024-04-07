@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { CATEGORIES } from './data/categories';
 import { PROJECTS } from './data/projects';
 import { TAGS } from './data/tags';
 import { filter } from 'rxjs';
+import { ProjectFilterPipe } from './pipes/project-filter.pipe';
+import { ProjectComponent } from './components/project/project.component';
+import { ProjectsComponent } from './components/projects/projects.component';
 
 
 
@@ -15,7 +18,16 @@ import { filter } from 'rxjs';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,CommonModule],
+  imports: [
+    RouterOutlet,
+    CommonModule,
+    RouterLink,
+    RouterLinkActive,
+    ProjectFilterPipe,
+    ProjectComponent,
+    ProjectsComponent,
+  
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -24,14 +36,15 @@ import { filter } from 'rxjs';
 export class AppComponent {
   title = "Chuan's showcase";
   footer = "© 2024 Chuan He";
-  public categories = CATEGORIES;
+  author = "Chuan He";
+
+  public categories = CATEGORIES; 
   public projects = PROJECTS;
   public tags = TAGS;
 
-    
-  }
-
   
+
+  }
 
 
 
