@@ -22,21 +22,13 @@ import { ProjectComponent } from "../project/project.component";
 })
 
 export class ProjectsComponent implements OnInit {
-  projects: Project[] = [];
-  categories: Category[] = [];
-  tags: Tag[] = [];
-  selectedCategory: Category | undefined;
-  selectedTag: Tag | undefined;
-  selectedProject: Project | undefined;
 
   constructor(
     private projectService: ProjectService,
     private route: ActivatedRoute
   ) {}
 
-  ngOnInit(): void {
-    this.getProjects();
-  }
+  projects: Project[] = [];
 
   getProjects(): void {
     this.projectService.getProjects().subscribe((projects) => {
@@ -44,21 +36,36 @@ export class ProjectsComponent implements OnInit {
     });
   }
 
-  onSelectCategory(category: Category): void {
-    this.selectedCategory = category;
-    this.selectedTag = undefined;
-    this.selectedProject = undefined;
-  }
+    ngOnInit(): void {
+        this.getProjects();
+    }
 
-  onSelectTag(tag: Tag): void {
-    this.selectedTag = tag;
-    this.selectedCategory = undefined;
-    this.selectedProject = undefined;
-  }
+    // @Input() themeFilter: Theme | undefined;
+    // @Output() newThemeFilterEvent = new EventEmitter<Theme>();
+    // @Input() tagFilter: Tag | undefined;
+    // @Output() newTagFilterEvent = new EventEmitter<Tag>();
+  
+    // setThemeFilter(theme: Theme) {
+    //   this.themeFilter = theme;
+    //   this.newThemeFilterEvent.emit(theme);
+    // }
+  
+    // setTagFilter(tag: Tag) {
+    //   this.tagFilter = tag;
+    //   this.newTagFilterEvent.emit(tag);
+    // }
+  
+    // clearFilters() {
+    //   this.themeFilter = undefined;
+    //   this.tagFilter = undefined;
+    // }
 
-  onSelectProject(project: Project): void {
-    this.selectedProject = project;
-    this.selectedCategory = undefined;
-    this.selectedTag = undefined;
-  }
+
+  selectedProject?: Project;
+
+  @Output() newSelectedProjectEvent = new EventEmitter<Project>();
+
+  setSelectedProject(project: Project): void {
+    this.newSelectedProjectEvent.emit(project);
+}
 }

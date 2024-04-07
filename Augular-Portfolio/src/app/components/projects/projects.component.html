@@ -1,18 +1,29 @@
 <section id="projects">
-    
-        <div class="main-content">
-            <div class="project" *ngFor="let project of projects">
+
+    <div class="main-content">
+        <div class="project" 
+        *ngFor="let project of projects"
+        (click)="setSelectedProject(project)">
+            <a href="/projects/{{project?.id}}">
                 <h2>{{project.title}}</h2>
                 <p>{{project.excerpt}}</p>
-                <div class="cate-tag">
-                    <div>
-                        <p *ngIf="project.category">Category: {{project.category.name}}</p>
-                    </div>
-                    <div class="taglist" >
-                        <p *ngIf="project.tags && project.tags.length > 0">Tags :</p>
-                        <p *ngFor="let tag of project.tags">{{tag.name}}</p>
-                    </div>
+            </a>
+          
+
+
+            <div class="cate-tag">
+                <div class="catelist">
+                    <p *ngIf="project.category">Category: {{project.category.name}}</p>
+                </div>
+                 <div class="taglist" >
+                    <p *ngIf="project.tags && project.tags.length > 0">Tags :</p>
+                    <p *ngFor="let tag of project.tags">{{tag.name}}</p>
                 </div>
             </div>
-    </div>
+
+         
+        </div>
+</div>
+
 </section>
+

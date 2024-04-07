@@ -1,6 +1,15 @@
 <header>
 
+  <a routerLink="/home">
     <h1 *ngIf="title"> {{ title }}</h1>
+  </a>
+    <!-- <nav>
+        <a routerLink="/home">
+          <h1 *ngIf="title"> {{ title }}</h1>
+        </a>
+        <a routerLink="/projects">Projects</a>
+        <a routerLink="/about">About</a>
+    </nav> -->
 </header>
 
 <body>
@@ -8,29 +17,10 @@
 
         <div class="container">
           
-                <!-- <div class="main-content">
-                    <div
-                    class="project"
-                    
-                    *ngFor="let project of projects"
-                
-                     >
-                    <h2>{{project.title}}</h2>
-                    <p>{{project.excerpt}}</p>
-                    <div class="cate-tag">
-                        <div>
-                            <p *ngIf="project.category">Category: {{project.category.name}}</p>
-                        </div>
-                        
-                        <div class="taglist" >
-                        <p *ngIf="project.tags && project.tags.length > 0">Tags :</p>
-                        <p *ngFor="let tag of project.tags">{{tag.name}}</p>
-                        </div>
-                    </div>
-              
-                  </div>
-                </div> -->
-                
+
+                <div class="content">
+                  <router-outlet></router-outlet>
+                </div>
               <div class="sidebar">
                 <h2>Categories</h2>
                 <div class="sidebar-item" 
@@ -44,7 +34,8 @@
                    {{tag.name}}
                 </div>
             </div>
-            <router-outlet></router-outlet>
+         
+            
           
             
           </div>

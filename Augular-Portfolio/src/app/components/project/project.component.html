@@ -1,28 +1,23 @@
-<!-- <section id="project">
-    <div class="container">
-        <div class="main-content">
-            <div class="project" *ngFor="let project of projects">
-                <h2>{{project.title}}</h2>
-                <p>{{project.excerpt}}</p>
-                <div class="cate-tag">
-                    <div>
-                        <p *ngIf="project.category">Category: {{project.category.name}}</p>
-                    </div>
-                    <div class="taglist" >
-                        <p *ngIf="project.tags && project.tags.length > 0">Tags :</p>
-                        <p *ngFor="let tag of project.tags">{{tag.name}}</p>
-                    </div>
-                </div>
-            </div>
+<article>
+    <header>
+      <button type="button" (click)="goBack()">Back</button>
+    </header>
+    <section class="project-card">
+   
+      <div>
+        <h2>{{ project?.title}}</h2>
+        <div>{{ project?.excerpt }}</div>
+        <div [innerHTML]="project?.body">{{ project?.body }}</div>
+      </div>
+
+      <div *ngIf="project?.category">
+        Theme: <span>{{ project?.category?.name }}</span>
+      </div>
+      <div *ngIf="project?.tags?.length">
+        Tags:
+        <span *ngFor="let tag of project?.tags">
+          {{ tag.name }}
+        </span>
         </div>
-        <div class="sidebar">
-            <h2>Categories</h2>
-            <div class="sidebar-item" *ngFor="let category of categories">
-                {{category.name}}
-            </div>
-            <h2>Tags</h2>
-            <div class="sidebar-item" *ngFor="let tag of tags">
-                {{tag.name}}
-            </div>
-        </div>
-    </div> -->
+    </section>
+  </article>
