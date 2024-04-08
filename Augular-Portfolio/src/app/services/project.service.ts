@@ -17,9 +17,11 @@ export class ProjectService {
       const projects = of(PROJECTS);
       return projects;
     }
-    getProject(id: number): Project {
-      return PROJECTS.find((project) => project.id === id)!;
+    getProject(id: number): Observable<Project | null> {
+        const project = PROJECTS.find(project => project.id === id);
+        return of(project !== undefined ? project : null);
     }
+
     getProjectsByCategory(slug: string): Observable<Project[]> {
       const projects = PROJECTS.filter(
         (project) => project.category?.slug === slug

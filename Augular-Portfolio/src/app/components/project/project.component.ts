@@ -16,14 +16,14 @@ import { Project } from "../../models/project";
 })
 
 export class ProjectComponent {
-  project: Project | undefined;
+ 
 
   constructor(
     private route: ActivatedRoute,
     private projectService: ProjectService,
     private location: Location
   ) {}
-
+  project!: Project;
   ngOnInit(): void {
 
     this.getProject();
@@ -31,7 +31,18 @@ export class ProjectComponent {
 
   getProject(): void {
     const id = Number(this.route.snapshot.paramMap.get("id"));
-    this.projectService.getProject(id)
+    console.log("project id", id);
+    this.projectService.getProject(id).subscribe((project) => {
+      if (project) {
+        this.project = project;
+      }
+      else
+      {
+        console.log("No project found");
+      }
+      console.log("project", this.project);
+    }
+    );
   }
 
   goBack(): void {
