@@ -25,12 +25,13 @@ export class ProjectComponent {
   ) {}
 
   ngOnInit(): void {
+
     this.getProject();
   }
 
   getProject(): void {
     const id = Number(this.route.snapshot.paramMap.get("id"));
-    this.projectService.getProject(id).subscribe((project) => (this.project = project));
+    this.projectService.getProject(id)
   }
 
   goBack(): void {

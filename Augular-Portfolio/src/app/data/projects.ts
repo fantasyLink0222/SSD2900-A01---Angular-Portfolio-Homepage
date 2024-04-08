@@ -53,7 +53,26 @@ export const PROJECTS: Project[] =
     "created_at": "2023-02-23T22:31:23.000000Z",
     "updated_at": "2023-02-23T22:31:23.000000Z",
     "category": { "id": 1, "slug": "back-end", "name": "Back End" },
-    "tags": []
+    "tags": [
+      {
+        "id": 1,
+        "name": "Laravel",
+        "slug": "laravel",
+        "pivot": { "projects_id": 2, "tags_id": 1 }
+      },
+      {
+        "id": 2,
+        "name": "PHP",
+        "slug": "php",
+        "pivot": { "projects_id": 2, "tags_id": 2 }
+      },
+      {
+        "id": 3,
+        "name": "Docker",
+        "slug": "docker",
+        "pivot": { "projects_id": 2, "tags_id": 3 }
+      }
+    ]
   },
   {
     "id": 3,
@@ -68,8 +87,28 @@ export const PROJECTS: Project[] =
     "category_id": null,
     "created_at": "2023-02-23T22:31:23.000000Z",
     "updated_at": "2023-02-23T22:31:23.000000Z",
-    "category": null,
-    "tags": []
+    "category": {"id": 3, "slug": "full-stack", "name": "Full Stack"},
+
+    "tags": [
+      {
+        "id": 5,
+        "name": "JavaScript",
+        "slug": "javascript",
+        "pivot": { "projects_id": 3, "tags_id": 5 }
+      },
+      {
+        "id": 6,
+        "name": "HTML",
+        "slug": "html",
+        "pivot": { "projects_id": 3, "tags_id": 6 }
+      },
+      {
+        "id": 7,
+        "name": "CSS",
+        "slug": "css",
+        "pivot": { "projects_id": 3, "tags_id": 7 }
+      }
+    ]
   },
   {
     "id": 4,
@@ -85,7 +124,26 @@ export const PROJECTS: Project[] =
     "created_at": "2023-02-23T22:31:23.000000Z",
     "updated_at": "2023-02-23T22:31:23.000000Z",
     "category": { "id": 2, "slug": "front-end", "name": "Front End" },
-    "tags": []
+    "tags": [
+      {
+        "id": 5,
+        "name": "JavaScript",
+        "slug": "javascript",
+        "pivot": { "projects_id": 4, "tags_id": 5 }
+      },
+      {
+        "id": 6,
+        "name": "HTML",
+        "slug": "html",
+        "pivot": { "projects_id": 4, "tags_id": 6 }
+      },
+      {
+        "id": 7,
+        "name": "CSS",
+        "slug": "css",
+        "pivot": { "projects_id": 4, "tags_id": 7 }
+      }
+    ]
   },
   {
     "id": 5,
@@ -101,12 +159,31 @@ export const PROJECTS: Project[] =
     "created_at": "2023-02-23T22:31:23.000000Z",
     "updated_at": "2023-02-23T22:31:23.000000Z",
     "category": { "id": 2, "slug": "front-end", "name": "Front End" },
-    "tags": []
+    "tags": [
+      {
+        "id": 5,
+        "name": "JavaScript",
+        "slug": "javascript",
+        "pivot": { "projects_id": 5, "tags_id": 5 }
+      },
+      {
+        "id": 6,
+        "name": "HTML",
+        "slug": "html",
+        "pivot": { "projects_id": 5, "tags_id": 6 }
+      },
+      {
+        "id": 7,
+        "name": "CSS",
+        "slug": "css",
+        "pivot": { "projects_id": 5, "tags_id": 7 }
+      }
+    ]
   },
   {
     "id": 6,
-    "title": "iOS App",
-    "slug": "ios-app",
+    "title": "Shipping App",
+    "slug": "react-app",
     "excerpt": "Qui dolores et velit. Quo nostrum laboriosam est in possimus accusantium.",
     "body": "<p>Ut consequatur modi voluptates officia inventore consequatur. Molestiae possimus voluptate nihil voluptatem et harum sapiente. Aut voluptas possimus aspernatur beatae omnis ad et. Non non ipsum laborum quisquam et.</p></p>Ullam ab velit at non. Deserunt ut ea veritatis sapiente aliquid eos quia et. Commodi dolore esse voluptatem delectus.</p></p>Velit velit numquam cupiditate quis. Quos et veniam nobis omnis.</p>",
     "url": null,
@@ -116,8 +193,23 @@ export const PROJECTS: Project[] =
     "category_id": null,
     "created_at": "2023-02-23T22:31:23.000000Z",
     "updated_at": "2023-02-23T22:31:23.000000Z",
-    "category": null,
-    "tags": []
+    "category":  { "id": 2, "slug": "front-end", "name": "Front End" },
+    "tags": [
+      {
+        "id": 14,
+        "name": "React",
+        "slug": "react",
+        "pivot": { "projects_id": 6, "tags_id": 14 }
+      },
+      {
+        "id": 15,
+        "name": "Redux",
+        "slug": "redux",
+        "pivot": { "projects_id": 6, "tags_id": 15 }
+      },
+     
+
+    ]
   },
   {
     "id": 7,
@@ -149,6 +241,33 @@ export const PROJECTS: Project[] =
     "created_at": "2023-02-23T22:31:23.000000Z",
     "updated_at": "2023-02-23T22:31:23.000000Z",
     "category": { "id": 3, "slug": "full-stack", "name": "Full Stack" },
-    "tags": []
+    "tags": [
+      {
+        "id": 16,
+        "name": "Angular",
+        "slug": "angular",
+        "pivot": { "projects_id": 8, "tags_id": 16 }
+      },
+
+      {
+        "id": 8,
+        "name": "TypeScript",
+        "slug": "typescript",
+        "pivot": { "projects_id": 8, "tags_id": 8 }
+      },
+      {
+        "id": 9,
+        "name": "Node",
+        "slug": "node",
+        "pivot": { "projects_id": 8, "tags_id": 9 }
+      },
+      {
+        "id": 10,
+        "name": "Express",
+        "slug": "express",
+        "pivot": { "projects_id": 8, "tags_id": 10 }
+      }
+
+    ]
   }
 ]

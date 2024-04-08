@@ -14,11 +14,11 @@ import { ProjectComponent } from "../project/project.component";
 
 
 @Component({
-  selector: "app-projects",
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: "./projects.component.html",
-  styleUrl: "./projects.component.scss",
+    selector: "app-projects",
+    standalone: true,
+    templateUrl: "./projects.component.html",
+    styleUrl: "./projects.component.scss",
+    imports: [CommonModule, ProjectFilterPipe, ProjectComponent]
 })
 
 export class ProjectsComponent implements OnInit {
@@ -28,37 +28,52 @@ export class ProjectsComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
 
-  projects: Project[] = [];
+projects: Project[] = [];
 
-  getProjects(): void {
-    this.projectService.getProjects().subscribe((projects) => {
-      this.projects = projects;
+getProjects(): void {
+    this.projectService.getProjects().subscribe((projects: Project[]) => {
+        this.projects = projects;
+    });
+}
+
+getProjectsByCategory(): void {
+    const categorySlug = String(this.route.snapshot.paramMap.get("slug"));
+    this.projectService.getProjectsByCategory(categorySlug).subscribe((data) => {
+        this.projects = data;
+    });
+}
+
+ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      if (params['slug']) {
+        this.getProjectsByCategory();
+      } else {
+        this.getProjects();
+      }
     });
   }
+  
 
-    ngOnInit(): void {
-        this.getProjects();
+
+    @Input() categoryFilter: Category | undefined;
+    @Output() newCategoryFilterEvent = new EventEmitter<Category>();
+    @Input() tagFilter: Tag | undefined;
+    @Output() newTagFilterEvent = new EventEmitter<Tag>();
+  
+    setCategoryFilter(category: Category) {
+      this.categoryFilter = category;
+      this.newCategoryFilterEvent.emit(category);
     }
-
-    // @Input() themeFilter: Theme | undefined;
-    // @Output() newThemeFilterEvent = new EventEmitter<Theme>();
-    // @Input() tagFilter: Tag | undefined;
-    // @Output() newTagFilterEvent = new EventEmitter<Tag>();
   
-    // setThemeFilter(theme: Theme) {
-    //   this.themeFilter = theme;
-    //   this.newThemeFilterEvent.emit(theme);
-    // }
+    setTagFilter(tag: Tag) {
+      this.tagFilter = tag;
+      this.newTagFilterEvent.emit(tag);
+    }
   
-    // setTagFilter(tag: Tag) {
-    //   this.tagFilter = tag;
-    //   this.newTagFilterEvent.emit(tag);
-    // }
-  
-    // clearFilters() {
-    //   this.themeFilter = undefined;
-    //   this.tagFilter = undefined;
-    // }
+    clearFilters() {
+      this.categoryFilter = undefined;
+      this.tagFilter = undefined;
+    }
 
 
   selectedProject?: Project;

@@ -15,9 +15,9 @@ export class CategoryService {
 
  
 
-  getCategories(): Observable<Category[]> {
-    const categories = of(CATEGORIES);
-    return categories
+  getCategories(): Category[] {
+  
+    return CATEGORIES
   }
 
  

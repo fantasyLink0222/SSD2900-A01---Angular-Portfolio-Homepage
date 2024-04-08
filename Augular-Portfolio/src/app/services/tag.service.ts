@@ -8,8 +8,7 @@ import { TAGS } from '../data/tags';
 })
 export class TagService {
   constructor() {}
-  getTags(): Observable<Tag[]> {
-    const tags = of(TAGS);
-    return tags
+  getTags(): Tag[] {
+    return TAGS
   }
 }
