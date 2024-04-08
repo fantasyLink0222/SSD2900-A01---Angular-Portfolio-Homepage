@@ -1,3 +1,7 @@
+import { Category } from "../models/catergory";
+
+export const CATEGORIES:Category[] =
+
 [
   { "id": 1, "slug": "back-end", "name": "Back End" },
   { "id": 2, "slug": "front-end", "name": "Front End" },

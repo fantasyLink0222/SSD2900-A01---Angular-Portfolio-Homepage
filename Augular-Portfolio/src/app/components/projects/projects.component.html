@@ -1,0 +1,35 @@
+<section id="projects">
+
+    <div class="main-content">
+        <div class="project" 
+        *ngFor="let project of projects | projectFilter : tagFilter"
+        [class.hidden]=" categoryFilter && project.category?.id !== categoryFilter.id"
+        (click)="setSelectedProject(project)">
+            <a href="/projects/{{project?.id}}">
+                <h2>{{project.title}}</h2>
+                <p>{{project.excerpt}}</p>
+            </a>
+          
+
+
+            <div class="cate-tag">
+                <div *ngIf="project.category">
+                   Category:
+                    <a [href]="'/projects/categories/' + project.category.slug">{{
+                      project.category.name
+                    }}</a>
+                  </div>
+                  <div *ngIf="project.tags?.length">
+                    Tags:
+                    <span *ngFor="let tag of project.tags" (click)="setTagFilter(tag)">
+                      {{ tag.name }}
+                    </span>
+                  </div>
+            </div>
+
+         
+        </div>
+</div>
+
+</section>
+

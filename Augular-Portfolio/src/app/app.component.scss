@@ -5,40 +5,7 @@
     grid-gap: 16px; 
   }
 
-    .main-content {
-       
-            display: grid;
-            grid-gap: 16px; /* space between grid items */
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            /* Creates as many columns as can fit at least 200px wide */
-          
-    }
-
-    .project {
-        /* Styling for individual articles */
-        display: flex;
-        flex-direction: column;
-        padding: 16px;
-        
-        
-      }
-    .cate-tag{
-        display: flex;
-        flex-direction: column;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        gap:0.2em;
-        
-    }
-    .cate-tag p{
-        margin: 0;
-        padding: 0;
-        font-size: 0.8em;
     
-        border-radius: 0.2em;
-        padding: 0.2em;
-    }
 
     .sidebar {
             /* Styling for sidebar */
@@ -50,15 +17,18 @@
             font-size: 1.2em;
             max-height: fit-content;
         }
-    .taglist {
-        display: flex;
-        flex-wrap: wrap;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        gap:0.2em;
-        
-    }
+    
    .sidebar-item {
     cursor: pointer;
    }
+    //footer bottom right
+    footer{
+        position: fixed;
+        bottom: 0;
+        right: 2em;
+        padding: 0.5em;
+        
+        font-size: 1.2em;
+        max-height: fit-content;
+
+    }

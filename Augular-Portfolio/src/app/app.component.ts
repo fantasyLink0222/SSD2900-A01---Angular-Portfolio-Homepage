@@ -1,60 +1,74 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { CATEGORIES } from './data/categories';
+import { PROJECTS } from './data/projects';
+import { TAGS } from './data/tags';
+import { filter } from 'rxjs';
+import { ProjectFilterPipe } from './pipes/project-filter.pipe';
+import { ProjectComponent } from './components/project/project.component';
+import { ProjectsComponent } from './components/projects/projects.component';
+import { CategoriesComponent } from "./components/categories/categories.component";
+import { TagsComponent } from './components/tags/tags.component';
+import { Category } from './models/catergory';
+import { Tag } from './models/tag';
+import { Project } from './models/project';
 
-import categoriesData from '../assets/data/categories.json';
-import projectsData from '../assets/data/projects.json';
-import tagsData from '../assets/data/tags.json';
-
-
-export class Category {
-  id!: number;
-  name!: string;
-  slug!: string;
-
-}
-const CATEGORIES: Category[] = categoriesData as Category[];
-
-export class Tag {
-  id!: number;
-  name!: string;
-  slug!: string;
-  pivot?: any;
-}
-const TAGS: Tag[] = tagsData as Tag[];
-export class Project {
-  'id': number;
-  'title': string;
-  'slug': string;
-  'excerpt': string;
-  'body': string;
-  'url': string | null;
-  'published_date': string | null;
-  'image': string | null;
-  'thumb': string | null;
-  'category_id': number | null;
-  'created_at': string;
-  'updated_at': string;
-  'category': Category | null;
-  'tags': Tag[] | undefined;
-}
-const PROJECTS: Project[] = projectsData as Project[];
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet,CommonModule],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+    selector: 'app-root',
+    standalone: true,
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss',
+    imports: [
+        RouterOutlet,
+        CommonModule,
+        RouterLink,
+        RouterLinkActive,
+        ProjectFilterPipe,
+        ProjectComponent,
+        ProjectsComponent,
+        TagsComponent,
+        CategoriesComponent
+    ]
 })
 
 
 export class AppComponent {
   title = "Chuan's showcase";
   footer = "© 2024 Chuan He";
-  public categories = CATEGORIES;
+  author = "Chuan He";
+
+  public categories = CATEGORIES; 
   public projects = PROJECTS;
   public tags = TAGS;
 
+  categoryFilter: Category | undefined;
+  tagFilter: Tag | undefined;
+
+  setCategoryFilter(category: Category) {
+    this.categoryFilter = category;
+    this.tagFilter = undefined;
+  }
+
+  setTagFilter(tag: Tag) {
+    this.tagFilter = tag;
+    this.categoryFilter = undefined;
+  }
+
+  clearFilters() {
+    this.categoryFilter = undefined;
+    this.tagFilter = undefined;
+  }
+  
+  selectedProject?: Project;
+
+  setSelectedProject(project: Project) {
+    this.selectedProject = project;
+  }
+
+  clearSelectedProject() {
+    this.selectedProject = undefined;
+  }
 
 }
