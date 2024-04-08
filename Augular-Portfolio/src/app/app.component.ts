@@ -39,9 +39,6 @@ export class AppComponent {
   footer = "© 2024 Chuan He";
   author = "Chuan He";
 
-  public categories = CATEGORIES; 
-  public projects = PROJECTS;
-  public tags = TAGS;
 
   categoryFilter: Category | undefined;
   tagFilter: Tag | undefined;
