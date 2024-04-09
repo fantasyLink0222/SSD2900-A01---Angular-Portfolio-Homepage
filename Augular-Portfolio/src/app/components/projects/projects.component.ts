@@ -11,6 +11,8 @@ import { Project } from "../../models/project";
 
 import { ActivatedRoute } from "@angular/router";
 import { ProjectComponent } from "../project/project.component";
+import { CategoriesComponent } from "../categories/categories.component";
+import { TagsComponent } from "../tags/tags.component";
 
 
 @Component({
@@ -18,7 +20,7 @@ import { ProjectComponent } from "../project/project.component";
     standalone: true,
     templateUrl: "./projects.component.html",
     styleUrl: "./projects.component.scss",
-    imports: [CommonModule, ProjectFilterPipe, ProjectComponent]
+    imports: [CommonModule, ProjectFilterPipe, ProjectComponent, CategoriesComponent, TagsComponent]
 })
 
 export class ProjectsComponent implements OnInit {
@@ -44,13 +46,10 @@ getProjectsByCategory(): void {
 }
 
 ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      if (params['slug']) {
-        this.getProjectsByCategory();
-      } else {
+   
         this.getProjects();
-      }
-    });
+      
+ 
   }
   
 
@@ -80,7 +79,8 @@ ngOnInit(): void {
 
   @Output() newSelectedProjectEvent = new EventEmitter<Project>();
 
-  setSelectedProject(project: Project): void {
+  setSelectedProject(project: Project, event:Event): void {
+    event.stopPropagation();
     this.newSelectedProjectEvent.emit(project);
 }
 }

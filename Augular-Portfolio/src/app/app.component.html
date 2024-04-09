@@ -16,10 +16,18 @@
  
 
         <div class="container">
-          
-
                 <div class="content">
+                  <section *ngif="!selectedProject">
+                    <app-projects
+                    [categoryFilter]="categoryFilter"
+                    (newCategoryFilterEvent)="setCategoryFilter($event)"
+                    [tagFilter]="tagFilter"
+                    (newTagFilterEvent)="setTagFilter($event)"
+                  ></app-projects>
+                  </section>
+            
                   <router-outlet></router-outlet>
+
                 </div>
               <div class="sidebar">
                 <article *ngIf="categoryFilter || tagFilter">

@@ -1,11 +1,13 @@
-<section id="projects">
+<section id="projects"
+
+>
 
     <div class="main-content">
         <div class="project" 
-        *ngFor="let project of projects | projectFilter : tagFilter"
+        *ngFor="let project of projects | projectFilter : tagFilter : categoryFilter"
         [class.hidden]=" categoryFilter && project.category?.id !== categoryFilter.id"
-        (click)="setSelectedProject(project)">
-            <a href="/projects/{{project?.id}}">
+        (click)="setSelectedProject(project, $event)">
+        <a href="/projects/{{project?.id}}" (click)="$event.stopPropagation()">
                 <h2>{{project.title}}</h2>
                 <p>{{project.excerpt}}</p>
             </a>
