@@ -19,7 +19,14 @@
           
 
                 <div class="content">
-                  <router-outlet></router-outlet>
+                 
+                  <app-projects
+                    [categoryFilter]="categoryFilter"
+                    (newCategoryFilterEvent)="setCategoryFilter($event)"
+                    [tagFilter]="tagFilter"
+                    (newTagFilterEvent)="setTagFilter($event)">
+              
+                  </app-projects>
                 </div>
               <div class="sidebar">
                 <article *ngIf="categoryFilter || tagFilter">
@@ -42,18 +49,9 @@
                   ></app-tags>
                 </article>
             </div>
-         
-            
-          
-            
+
           </div>
 
-        
-
-    
-    
-   
-    
 </body>
 
 <footer>
